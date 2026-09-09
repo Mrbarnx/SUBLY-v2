@@ -1,0 +1,4 @@
+import { Link, Outlet } from 'react-router-dom'
+import { Container } from '../layout/Container'
+import { SublyLogo } from '../storefront/SublyLogo'
+export function AuthLayout(){return <div className="flex min-h-screen flex-col bg-white"><header className="border-b border-border"><Container className="flex min-h-18 items-center justify-between gap-4"><SublyLogo/><Link to="/" className="text-sm font-semibold text-primary">← Back to store</Link></Container></header><main className="flex flex-1"><Outlet/></main><footer className="border-t border-border"><Container className="flex flex-col gap-3 py-5 text-sm text-slate-500 sm:flex-row sm:justify-between"><span>© 2026 Subly</span><nav className="flex flex-wrap gap-5"><Link to="/privacy-policy">Privacy</Link><Link to="/terms-of-service">Terms</Link><Link to="/data-deletion">Data Deletion</Link><a href="mailto:support@subly.example">Support</a></nav></Container></footer></div>}
