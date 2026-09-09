@@ -1,0 +1,4 @@
+import { Link, Outlet } from 'react-router-dom'
+import { Container } from './Container'
+import { SublyLogo } from '../storefront/SublyLogo'
+export function CheckoutLayout(){return <div className="min-h-screen bg-page"><header className="border-b border-border bg-white"><Container className="flex min-h-16 items-center justify-between gap-4"><SublyLogo/><nav className="flex gap-4 text-sm font-semibold"><Link to="/shop">Shop</Link><Link to="/cart">Cart</Link><Link to="#support">Support</Link></nav></Container></header><main><Outlet/></main><footer className="mt-10 border-t border-border bg-white"><Container className="flex flex-col gap-4 py-5 text-sm text-slate-500 sm:flex-row sm:justify-between"><span>© 2026 Subly. All rights reserved.</span><div className="flex flex-wrap gap-5"><Link to="/terms-of-service">Terms</Link><Link to="/privacy-policy">Privacy</Link><Link to="/data-deletion">Data Deletion</Link></div></Container></footer></div>}
