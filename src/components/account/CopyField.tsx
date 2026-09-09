@@ -1,0 +1,2 @@
+import { useState } from 'react'
+export function CopyField({value}:{value:string}){const [copied,setCopied]=useState(false);async function copy(){await navigator.clipboard.writeText(value);setCopied(true);window.setTimeout(()=>setCopied(false),1500)}return <div className="flex min-w-0"><span className="min-w-0 flex-1 break-all rounded-l-card bg-white px-3 py-3 text-sm text-slate-600">{value}</span><button onClick={()=>void copy()} className="shrink-0 rounded-r-card bg-primary px-4 font-semibold text-white">{copied?'Copied':'Copy link'}</button></div>}

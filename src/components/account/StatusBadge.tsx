@@ -1,0 +1,2 @@
+import type { OrderStatus } from '../../types'
+export function StatusBadge({status}:{status:OrderStatus|string}){const positive=['completed','confirmed','qualified','rewarded'].includes(status);const danger=['failed','refunded','cancelled','ineligible'].includes(status);return <span className={`inline-flex rounded border px-2 py-1 text-xs font-semibold capitalize ${positive?'border-emerald-300 bg-emerald-50 text-emerald-700':danger?'border-red-300 bg-red-50 text-danger':'border-amber-300 bg-amber-50 text-amber-700'}`}>{status.replaceAll('-',' ')}</span>}
