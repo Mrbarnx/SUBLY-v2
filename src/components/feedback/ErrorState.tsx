@@ -1,0 +1,2 @@
+import { Button } from '../ui/Button'
+export function ErrorState({title='Something went wrong',description,onRetry}:{title?:string;description:string;onRetry?:()=>void}){return <section role="alert" className="rounded-card border border-red-200 bg-red-50 p-6"><h2 className="font-bold text-danger">{title}</h2><p className="mt-2 text-slate-700">{description}</p>{onRetry&&<Button className="mt-4" variant="secondary" onClick={onRetry}>Try again</Button>}</section>}

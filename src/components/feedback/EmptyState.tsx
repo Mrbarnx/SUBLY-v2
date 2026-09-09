@@ -1,0 +1,2 @@
+import type { ReactNode } from 'react'
+export function EmptyState({title,description,action}:{title:string;description:string;action?:ReactNode}){return <section className="rounded-card border border-dashed border-border bg-white p-8 text-center" aria-labelledby="empty-title"><h2 id="empty-title" className="text-lg font-bold">{title}</h2><p className="mx-auto mt-2 max-w-md text-slate-600">{description}</p>{action&&<div className="mt-5">{action}</div>}</section>}

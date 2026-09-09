@@ -1,0 +1,4 @@
+import { forwardRef, useId, type SelectHTMLAttributes } from 'react'
+import { cn } from '../../lib/cn'
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> { label: string; error?: string }
+export const Select = forwardRef<HTMLSelectElement,SelectProps>(function Select({className,label,error,id:givenId,children,...props},ref){const generatedId=useId();const id=givenId??generatedId;return <div className="grid gap-2"><label className="text-sm font-semibold" htmlFor={id}>{label}</label><select ref={ref} id={id} aria-invalid={!!error} aria-describedby={error?`${id}-error`:undefined} className={cn('min-h-11 w-full rounded-card border border-border bg-white px-3 py-2 disabled:bg-slate-100',error&&'border-danger focus-visible:outline-danger',className)} {...props}>{children}</select>{error&&<p id={`${id}-error`} className="text-sm text-danger">{error}</p>}</div>})

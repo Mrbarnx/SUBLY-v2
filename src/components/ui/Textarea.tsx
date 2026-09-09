@@ -1,0 +1,4 @@
+import { forwardRef, useId, type TextareaHTMLAttributes } from 'react'
+import { cn } from '../../lib/cn'
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> { label: string; error?: string }
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function Textarea({ className,label,error,id:givenId,...props },ref){const generatedId=useId();const id=givenId??generatedId;return <div className="grid gap-2"><label className="text-sm font-semibold" htmlFor={id}>{label}</label><textarea ref={ref} id={id} aria-invalid={!!error} aria-describedby={error?`${id}-error`:undefined} className={cn('min-h-28 w-full resize-y rounded-card border border-border bg-white px-3 py-2 disabled:bg-slate-100',error&&'border-danger focus-visible:outline-danger',className)} {...props}/>{error&&<p id={`${id}-error`} className="text-sm text-danger">{error}</p>}</div>})

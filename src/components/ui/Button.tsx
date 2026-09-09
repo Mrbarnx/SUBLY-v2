@@ -1,0 +1,6 @@
+import { forwardRef, type ButtonHTMLAttributes } from 'react'
+import { cn } from '../../lib/cn'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'danger'
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { variant?: Variant; loading?: boolean }
+const variants: Record<Variant, string> = { primary: 'bg-primary text-white hover:bg-blue-700 active:bg-blue-800', secondary: 'border border-border bg-white text-navy hover:bg-slate-50 active:bg-slate-100', ghost: 'bg-transparent text-primary hover:bg-blue-50 active:bg-blue-100', danger: 'bg-danger text-white hover:bg-red-700 active:bg-red-800' }
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ className, variant='primary', loading=false, disabled, children, ...props }, ref) { return <button ref={ref} disabled={disabled || loading} aria-busy={loading || undefined} className={cn('inline-flex min-h-11 items-center justify-center gap-2 rounded-card px-4 py-2 font-semibold transition-[color,background-color,border-color,opacity,transform] duration-200 ease-subly disabled:cursor-not-allowed disabled:opacity-50', variants[variant], className)} {...props}>{loading && <span className="size-4 animate-spin rounded-full border-2 border-current border-r-transparent motion-reduce:animate-none" aria-hidden="true"/>}{children}</button> })

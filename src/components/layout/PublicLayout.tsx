@@ -1,0 +1,3 @@
+import { NavLink, Outlet } from 'react-router-dom'
+import { Container } from './Container'
+export function PublicLayout(){return <div className="min-h-screen"><header className="border-b border-border bg-white"><Container className="flex min-h-16 items-center justify-between gap-4"><NavLink to="/" className="text-xl font-bold text-primary">Subly</NavLink><nav aria-label="Primary" className="flex items-center gap-4 text-sm font-semibold"><NavLink to="/how-it-works">How it works</NavLink><NavLink to="/shop">Shop</NavLink><NavLink to="/cart">Cart</NavLink></nav></Container></header><main><Outlet/></main></div>}
