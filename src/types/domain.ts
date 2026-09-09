@@ -1,5 +1,6 @@
-export interface Category { id: string; name: string; slug: string }
-export interface Product { id: string; name: string; slug: string; description: string; price: number; currency: string; categoryId: string; imageUrl?: string; available: boolean }
+export interface Category { id: string; name: string; slug: string; icon: string }
+export type DeliveryType = 'ready-made' | 'assisted'
+export interface Product { id: string; name: string; slug: string; description: string; price: number; originalPrice?: number; currency: string; categoryId: string; imageUrl?: string; logoText: string; logoColor: string; available: boolean; stock?: number; rating: number; reviewCount: number; deliveryMinutes: number; deliveryType: DeliveryType; validity: string; features: string[] }
 export interface CartItem { product: Product; quantity: number }
 export type OrderStatus='pending'|'completed'|'failed'
 export interface Order { id: string; reference: string; items: CartItem[]; total: number; currency: string; status: OrderStatus; createdAt: string }
