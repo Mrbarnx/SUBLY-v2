@@ -1,7 +1,7 @@
 import type { ReactNode, SVGProps } from 'react'
 import { cn } from '../../lib/cn'
 
-export type IconName = 'alert-triangle'|'arrow-left'|'arrow-right'|'bank'|'box'|'briefcase'|'cart'|'check'|'chevron-down'|'circle-check'|'circle-x'|'clock'|'code'|'copy'|'credit-card'|'file-check'|'filter'|'graduation-cap'|'grid'|'headphones'|'info'|'lock'|'mail'|'megaphone'|'menu'|'message-circle'|'minus'|'package'|'palette'|'plus'|'search'|'shield-check'|'sparkles'|'star'|'tag'|'trash'|'truck'|'user'|'wallet'|'x'|'zap'
+export type IconName = 'alert-triangle'|'arrow-left'|'arrow-right'|'bank'|'box'|'briefcase'|'cart'|'check'|'chevron-down'|'circle-check'|'circle-x'|'clock'|'code'|'copy'|'credit-card'|'eye'|'eye-off'|'file-check'|'filter'|'graduation-cap'|'grid'|'headphones'|'info'|'lock'|'mail'|'megaphone'|'menu'|'message-circle'|'minus'|'package'|'palette'|'plus'|'search'|'shield-check'|'sparkles'|'star'|'tag'|'trash'|'truck'|'user'|'wallet'|'x'|'zap'
 
 const paths: Record<IconName, ReactNode> = {
   'alert-triangle': <><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></>,
@@ -17,6 +17,8 @@ const paths: Record<IconName, ReactNode> = {
   code: <><path d="m8 9-4 3 4 3m8-6 4 3-4 3m-2-10-4 14"/></>,
   copy: <><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></>,
   'credit-card': <><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20M6 15h2"/></>,
+  eye: <><path d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7Z"/><circle cx="12" cy="12" r="3"/></>,
+  'eye-off': <><path d="m3 3 18 18M10.6 5.2A9.3 9.3 0 0 1 12 5c6 0 9.5 7 9.5 7a15 15 0 0 1-2.1 3.1M6.2 6.2C3.8 8 2.5 12 2.5 12s3.5 7 9.5 7a8.8 8.8 0 0 0 3.1-.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></>,
   'file-check': <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 0v6h6m-11 7 2 2 4-4"/></>,
   filter: <path d="M4 5h16l-6 7v5l-4 2v-7Z"/>,
   'graduation-cap': <><path d="m2 10 10-5 10 5-10 5Zm4 2v5c3 2 9 2 12 0v-5"/></>,
