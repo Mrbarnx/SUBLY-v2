@@ -17,6 +17,7 @@ import { StatCard } from "../components/account/StatCard";
 import { StatusBadge } from "../components/account/StatusBadge";
 import { AppLogo } from "../components/storefront/AppLogo";
 import { Button } from "../components/ui/Button";
+import { Icon } from "../components/ui/Icon";
 import { Dialog, EmptyState, ErrorState } from "../components/feedback";
 import { formatCurrency } from "../lib/currency";
 const useAccount = () =>
@@ -61,25 +62,25 @@ export function DashboardPage() {
       />
       <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
         <StatCard
-          icon="▢"
+          icon="package"
           label="Total orders"
           value={String(orders.length)}
           detail={`${orders.filter((o) => !["completed", "refunded", "cancelled"].includes(o.status)).length} active`}
         />
         <StatCard
-          icon="▣"
+          icon="wallet"
           label="Wallet balance"
           value={wallet.data ? formatCurrency(wallet.data.balance) : "—"}
           detail="View wallet"
         />
         <StatCard
-          icon="☆"
+          icon="star"
           label="Reward points"
           value="1,840"
           detail="Demo rewards"
         />
         <StatCard
-          icon="◇"
+          icon="tag"
           label="Total savings"
           value={formatCurrency(orders.reduce((sum, o) => sum + o.discount, 0))}
           detail="Across orders"
@@ -132,7 +133,7 @@ export function DashboardPage() {
           >
             <b>Refer & earn</b>
             <p className="mt-1 text-sm text-blue-100">
-              Invite friends and view demo rewards →
+              Invite friends and view demo rewards
             </p>
           </Link>
         </section>
@@ -339,7 +340,7 @@ export function ProfilePage() {
         description="Manage your personal information and account security."
         action={
           saved ? (
-            <span className="text-emerald-700">✓ Demo changes saved</span>
+            <span className="inline-flex items-center gap-2 text-emerald-700"><Icon name="circle-check" className="size-4"/>Demo changes saved</span>
           ) : undefined
         }
       />
@@ -502,7 +503,7 @@ export function SettingsPage() {
         action={
           saved ? (
             <span className="text-emerald-700">
-              ✓ Preferences saved locally
+              <Icon name="circle-check" className="mr-2 inline size-4"/>Preferences saved locally
             </span>
           ) : undefined
         }
@@ -553,7 +554,7 @@ export function SettingsPage() {
               ].map(([to, label]) => (
                 <Link key={to} to={to} className="flex justify-between">
                   {label}
-                  <span>→</span>
+                  <Icon name="arrow-right" className="size-4"/>
                 </Link>
               ))}
             </div>
@@ -597,7 +598,7 @@ export function WalletPage() {
       <AccountPageHeader
         title="Wallet"
         description="Review your demo Subly balance and activity."
-        action={<span>♢ Protected presentation</span>}
+        action={<span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700"><Icon name="shield-check" className="size-4"/>Protected presentation</span>}
       />
       <div className="grid gap-5 xl:grid-cols-2">
         <section className="rounded-card bg-navy p-6 text-white">
@@ -743,27 +744,27 @@ export function ReferralsPage() {
             For every qualified referral in this demo program.
           </p>
           <ul className="mt-4 grid gap-2 text-sm">
-            <li>✓ Friend signs up with your link</li>
-            <li>✓ Completes an eligible first order</li>
-            <li>✓ Reward is manually verified</li>
+            <li className="flex gap-2"><Icon name="circle-check" className="size-4 text-teal"/>Friend signs up with your link</li>
+            <li className="flex gap-2"><Icon name="circle-check" className="size-4 text-teal"/>Completes an eligible first order</li>
+            <li className="flex gap-2"><Icon name="circle-check" className="size-4 text-teal"/>Reward is manually verified</li>
           </ul>
         </SettingsSection>
       </div>
       <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
         <StatCard
-          icon="♧"
+          icon="users"
           label="Total signups"
           value={String(referrals.length)}
         />
         <StatCard
-          icon="✓"
+          icon="circle-check"
           label="Qualified"
           value={String(
             referrals.filter((r) => r.status === "qualified").length,
           )}
         />
         <StatCard
-          icon="◷"
+          icon="clock"
           label="Pending"
           value={String(
             referrals.filter((r) => ["invited", "joined"].includes(r.status))
@@ -771,7 +772,7 @@ export function ReferralsPage() {
           )}
         />
         <StatCard
-          icon="▣"
+          icon="wallet"
           label="Total earned"
           value={formatCurrency(earned)}
         />
